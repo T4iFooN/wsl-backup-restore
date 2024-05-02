@@ -2,7 +2,7 @@
 
 [CmdletBinding()]
 
-$BackupDirectory = "C:\your\backup\path"
+$BackupDirectory = "C:\your\backup/path"
 
 # Frist check if network drive is available
 if (Test-Path $BackupDirectory) {
@@ -11,7 +11,7 @@ if (Test-Path $BackupDirectory) {
     $distros = wsl --list --quiet
 
     Write-Host "WSL dristos found: $distros"
-    $confirmation = Read-Host "This will create a backup of each WSL distro and will take some time. Continue? "
+    $confirmation = Read-Host "This will create a backup of each WSL distro and will take some time. Continue? y/n"
 
     if ($confirmation -eq 'y') {
         # Backup each distro
@@ -20,6 +20,6 @@ if (Test-Path $BackupDirectory) {
         }
     }
 } else {
-    Write-Host "Dir not accessibly! Is the drive connected?"
+    Write-Host "Dir $BackupDirectory not accessibly! Is the drive connected?"
     return
 }

@@ -20,6 +20,6 @@ if (Test-Path $BackupDirectory) {
         }
     }
 } else {
-    Write-Host "Dir $BackupDirectory not accessibly! Is the drive connected?"
+    Write-Host "Dir $BackupDirectory not accessable! Is the drive connected?"
     return
 }
